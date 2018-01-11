@@ -12,6 +12,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AllCoins } from '../classes/allcoins';
+import { HttpSender } from '../services/HttpSender';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { AllCoins } from '../classes/allcoins';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -37,7 +40,9 @@ import { AllCoins } from '../classes/allcoins';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AllCoins
+    AllCoins,
+    HttpSender,
+    HttpModule
   ]
 })
 export class AppModule {}
